@@ -12,27 +12,32 @@
       
   <div class="container">
 <form action="/submit-form" method="post">
-    <fieldset>
+    <fieldset> <!-- Patient Information Section -->
       <legend>Patient Information</legend>
       <p id="personal-info-desc" style="font-style: normal; color: #003366;">
-      Please fill out your personal details below.
+      Please fill out your personal details below. Fields marked with an asterisk (*) are mandatory.
     </p>
-      <label for="first-name" aria-required="true">First name:</label>
-      <input type="text" id="first-name" name="first-name" aria-required="true" autocomplete="given-name"><br>
-      
-      <label for="middle-name">Middle name:</label>
-      <input type="text" id="middle-name" name="middle-name" autocomplete="middle-name"><br>
-      
-      <label for="last-name">Last name:</label>
-      <input type="text" id="last-name" name="last-name" aria-required="true"><br>
+      <label for="patient-first-name" aria-required="true">First name:*</label>
+      <input type="text" id="patient-first-name" name="first-name" aria-required="true" autocomplete="given-name"><br>
 
-      <label>Legal Sex:*</label><br>
-      <input type="radio" id="sex" name="sex" value="F">
-      <label for="female">Female</label><br>
-      <input type="radio" id="male" name="sex" value="M">
-      <label for="male">Male</label><br>
-      <input type="radio" id="transgender" name="sex" value="T">
-      <label for="transgender">Transgender</label><br>
+      <label for="patient-middle-name">Middle name:</label>
+      <input type="text" id="patient-middle-name" name="middle-name" qautocomplete="middle-name"><br>
+
+      <label for="patient-last-name">Last name:*</label>
+      <input type="text" id="patient-last-name" name="last-name" aria-required="true"><br>
+
+      <div class="tooltip-container">
+      <label for="legal-sex" aria-describedby="legal-sex-tooltip">Legal Sex:*</label>
+      <span id="legal-sex-tooltip" role="tooltip" class="tooltip-text">
+        Please select the legal sex insurance has on file for you.
+      </span>
+      </div><br>
+      <input type="radio" id="legal-sex-female" name="legal-sex" value="F">
+      <label for="legal-sex-female">Female</label><br>
+      <input type="radio" id="legal-sex-male" name="legal-sex-male" value="M">
+      <label for="legal-sex-male">Male</label><br>
+      <input type="radio" id="legal-sex-transgender" name="legal-sex-transgender" value="T">
+      <label for="legal-sex-transgender">Transgender</label><br>
 
       <label for="birth-date">Birth date:<span class="mandatory">*</span></label>
       <input type="date" id="birth-date" name="birth-date" aria-required="true" autocomplete="bday"><br>
@@ -40,22 +45,27 @@
       <label for="ssn">Social Security Number:</label>
       <input type="text" id="ssn" name="ssn" placeholder="xxx-xx-xxxx"><br>
 
-      <label>Marital Status:<span class="mandatory">*</span></label>
-      <input type="checkbox" id="marital-status-single" name="marital-status1" value="Single">
+      <div class="tooltip-container">
+      <label for="marital-status" aria-describedby="marital-tooltip">Marital Status:</label>
+      <span id="marital-tooltip" role="tooltip" class="tooltip-text">
+        Please select the marital status that your insurance has on file for you.
+      </span>
+      </div>
+      <input type="radio" id="marital-status-single" name="marital-status" value="Single">
       <label for="marital-status-single">Single</label>
-      <input type="checkbox" id="marital-status-married" name="marital-status2" value="Married">
+      <input type="radio" id="marital-status-married" name="marital-status" value="Married">
       <label for="marital-status-married">Married</label>
-      <input type="checkbox" id="marital-status-divorced" name="marital-status3" value="Divorced">
+      <input type="radio" id="marital-status-divorced" name="marital-status" value="Divorced">
       <label for="marital-status-divorced">Divorced</label>
-      <input type="checkbox" id="marital-status-separated" name="marital-status" value="Separated">
+      <input type="radio" id="marital-status-separated" name="marital-status" value="Separated">
       <label for="marital-status-separated">Separated</label>
-      <input type="checkbox" id="marital-status-widowed" name="marital-status5" value="Widowed">
+      <input type="radio" id="marital-status-widowed" name="marital-status-widowed" value="Widowed">
       <label for="marital-status-widowed">Widowed</label><br>
-
+<!-- Patient Contact Information Section -->
       <label for="street-address">Street address:</label>
       <input type="text" id="street-address" name="street-address" aria-required="true" autocomplete="address-line1"><br>
 
-      <label for="apt-unit">Apt/Unit:</label>
+      <label for="apt-unit">Apartment/Unit number:</label>
       <input type="text" id="apt-unit" name="apt-unit" autocomplete="address-line2"><br>
 
       <label for="city">City:<span class="mandatory">*</span></label>
@@ -85,9 +95,9 @@
           <label for="email">E-Mail:</label>
       <input type="email" id="email" name="email" autocomplete="email"><br>
       <p class="hint hidden" id="emailHint">Please enter a valid email address.</p><br>
-
-      <label>Appointment reminder preference (may select multiple):</label><br>
-      <p class="hint hidden" id="reminderHint">You may select multiple options.</p>
+<!-- Appointment reminder section -->
+      <label>Appointment reminder preference:</label><br>
+      <p class="reminder-desc" id="reminderHint">You may select multiple options.</p>
       <input type="checkbox" id="comm-prefs-phone" name="comm-prefs" value="Phone">
       <label for="comm-prefs-phone">Phone Call</label>
       <input type="checkbox" id="comm-prefs-text" name="comm-prefs" value="Text">
@@ -96,7 +106,7 @@
       <label for="comm-prefs-email">E-mail</label><br>
       </fieldset>
 
-<fieldset>
+<fieldset> <!-- Additional Patient Information Section -->
       <legend>Additional Patient Information</legend>
       <label>Ethnicity:</label>
       <input type="checkbox" name="ethnicity" value="Hispanic or Latino">
@@ -107,21 +117,21 @@
       <label for="ethnicity-decline">Decline to answer</label><br>
 
       <label>Race:</label>
-      <input type="checkbox" id="race-asian" name="race" value="Asian">
+      <input type="checkbox" id="race-asian" name="race-asian" value="Asian">
       <label for="race-asian">Asian</label>
-      <input type="checkbox" id="race-american-indian" name="race" value="American Indian or Alaska Native">
+      <input type="checkbox" id="race-american-indian" name="race-american-indian" value="American Indian or Alaska Native">
       <label for="race-american-indian">American Indian or Alaska Native</label>
-      <input type="checkbox" id="race-black" name="race" value="Black or African American">
+      <input type="checkbox" id="race-black" name="race-black" value="Black or African American">
       <label for="race-black">Black or African American</label>
-      <input type="checkbox" id="race-native-hawaiian" name="race" value="Native Hawaiian or other Pacific Islander">
+      <input type="checkbox" id="race-native-hawaiian" name="race-native-hawaiian" value="Native Hawaiian or other Pacific Islander">
       <label for="race-native-hawaiian">Native Hawaiian or other Pacific Islander</label>
-      <input type="checkbox" id="race-white" name="race" value="White">
+      <input type="checkbox" id="race-white" name="race-white" value="White">
       <label for="race-white">White</label>
-      <input type="checkbox" id="race-mixed"  name="race" value="Mixed Race">
+      <input type="checkbox" id="race-mixed"  name="race-mixed" value="Mixed Race">
       <label for="race-mixed">Mixed Race</label>
-      <input type="checkbox" id="race-decline" name="race" value="Decline">
+      <input type="checkbox" id="race-decline" name="race-decline" value="Decline">
       <label for="race-decline">Decline to answer</label><br>
-
+<!-- Language and Employer Information Section -->
       <label>Interpreter Needed?</label>
       <input type="radio" name="interpreter-needed" value="Yes">
       <label for="interpreter-needed-yes">Yes</label>
@@ -143,6 +153,7 @@
     </fieldset>
 
     <fieldset>
+      <!-- Emergency Contact Information Section -->
       <legend>Emergency Contact Information</legend>
        <label for="ec-first-name">First Name:</label>
       <input type="text" id="ec-first-name" name="ec-first-name" aria-required="true"><br>
@@ -170,9 +181,10 @@
     </fieldset>
 
         <fieldset>
+          <!-- Guarantor Information Section -->
             <legend>Person Responsible for the Bill</legend>
                 <p id="responsible-info-desc" style="font-style: normal; color: #003366;">
-    Only fill out if the person responsible for the bill is different from the patient. If the patient is a minor (under 18 years old), the parent or legal guardian must be responsible for the bill.
+    Fill out this section <em>only</em> if the person responsible for the bill is different from the patient. If the patient is a minor (under 18 years old), the parent or legal guardian must be responsible for the bill.
     </p>
                <label>Is this person a patient here?</label>
           <input type="radio" id="is_patient_yes" name="is_patient" value="yes"> 
@@ -199,7 +211,7 @@
 
     <label>Street address: </label>
     <input type="text" name="responsible_address"><br>
-    <label>Apt/unit: </label>
+    <label>Apartment/Unit number: </label>
     <input type="text" name="responsible_apt"><br>
     <label>City: </label> 
     <input type="text" name="responsible_city"><br>
@@ -238,11 +250,13 @@
         </fieldset>
 
 <fieldset>
+  <!-- Primary Insurance Information Section -->
   <legend>Primary Insurance Information</legend>
   <p id="personal-info-desc-primary" style="font-style: normal; color: #003366;">
       Please provide the following information as it appears on your insurance card. A copy of your insurance card is required.
     </p>
     <fieldset>
+      <!-- MHCP Insurance Info -->
       <legend>Minnesota Health Care Programs (MHCP) Insurance</legend>
   <label>Is the patient covered by a Minnesota Health Care Program (MHCP)?</label>
   <input type="radio" id="mhcp-yes" name="mhcp" value="Yes">
@@ -261,6 +275,7 @@
 </fieldset>
 
 <fieldset>
+  <!-- Commercial Insurance Info -->
   <legend>Commercial Insurance</legend>
   <p id="commercial-insurance-descyle: normal; color: #003366;">
       Commercial insurance is any insurance provided by an employer or purchased individually.
@@ -291,10 +306,13 @@
     Please select the legal sex insurance has on file for the policyholder.
   </span>
   </div> 
-  <input type="radio" id="ph-f" name="policy-holder-sex" value="F"><label for="ph-f">Female</label>
-  <input type="radio" id="ph-m" name="policy-holder-sex" value="M"><label for="ph-m">Male</label>
-  <input type="radio" id="ph-t" name="policy-holder-sex" value="T"><label for="ph-t">Transgender</label><br>
-  
+  <input type="radio" id="ph-f" name="policy-holder-sex-female" value="F">
+  <label for="ph-f">Female</label>
+  <input type="radio" id="ph-m" name="policy-holder-sex-male" value="M">
+  <label for="ph-m">Male</label>
+  <input type="radio" id="ph-t" name="policy-holder-sex-transgender" value="T">
+  <label for="ph-t">Transgender</label><br>
+
   <label for="ph-birth">Birth date:</label>
   <input type="date" id="ph-birth" name="ph-birth"><br>
 
@@ -310,6 +328,8 @@
   <label for="ph-maritalStatus-married">Married</label>
   <input type="radio" id="ph-maritalStatus-divorced" name="ph-maritalStatus" value="Divorced">
   <label for="ph-maritalStatus-divorced">Divorced</label>
+  <input type="radio" id="ph-maritalStatus-separated" name="ph-maritalStatus" value="Separated">
+  <Label for="marital-status-separated">Separated</Label>
   <input type="radio" id="ph-maritalStatus-widowed" name="ph-maritalStatus" value="Widowed">
   <label for="ph-maritalStatus-widowed">Widowed</label><br>
 
@@ -332,11 +352,11 @@
 
  <fieldset>
     <legend>Policyholder's Contact Information</legend>
-
+<input type="checkbox" id="ph-same-patient" name="ph-same-patient" value="Yes">
+<label for="ph-same-patient">Same as Patient</label><br>
   <label for="ph-address">Street address:</label>
   <input type="text" id="ph-address" name="ph-address"><br>
-  <input type="checkbox" id="ph-same-patient" name="ph-same-patient" value="Yes"><label for="ph-same-patient">Same as Patient</label><br>
-  <label for="ph-apt">Apt/unit:</label>
+  <label for="ph-apt">Apartment/unit number:</label>
   <input type="text" id="ph-apt" name="ph-apt"><br>
   <label for="ph-city">City:</label>
   <input type="text" id="ph-city" name="ph-city"><br>
@@ -373,9 +393,9 @@
   <label for="insurance-start-date">Insurance Start Date:</label>
   <input type="date" id="insurance-start-date" name="insurance-start-date"><br>
 
-   <label for="ph-employer">Employer Name:</label>
+   <label for="ph-employer">Employer name:</label>
   <input type="text" id="ph-employer" name="ph-employer"><br>
-  <label for="ph-employer-city">City & State:</label>
+  <label for="ph-employer-city">Employer city and state:</label>
   <input type="text" id="ph-employer-city" name="ph-employer-city"><br>
   </fieldset>
 </fieldset>
@@ -386,7 +406,7 @@
       Please provide the following information as it appears on your insurance card. A copy of your insurance card is required.
     </p>
   <div class="tooltip-container">
-  <label for="sec-patient-policyholder" aria-describedby="sec-tooltip-content">Is patient the policyholder?</label>
+  <label for="sec-patient-policyholder" aria-describedby="sec-tooltip-content">Is the patient the policyholder?</label>
   <span id="sec-tooltip-content" role="tooltip" class="tooltip-text">
     The policyholder is the person who holds the insurance policy, which may be the patient or another individual.
   </span>
@@ -431,6 +451,8 @@
   <label for="sec-marital-status-married">Married</label>
   <input type="radio" id="sec-marital-status-divorced" name="sec-marital-status" value="Divorced">
   <label for="sec-marital-status-divorced">Divorced</label>
+  <input type="radio" id="sec-marital-status-separated" name="sec-marital-status" value="Separated">
+  <label for="sec-marital-status-separated">Separated</label>
   <input type="radio" id="sec-marital-status-widowed" name="sec-marital-status" value="Widowed">
   <label for="sec-marital-status-widowed">Widowed</label><br>
 
@@ -459,7 +481,7 @@
   <label for="sec-ph-address">Street address:</label>
   <input type="text" id="sec-ph-address" name="sec-ph-address"><br>
  
-  <label for="sec-ph-apt">Apt/Unit:</label>
+  <label for="sec-ph-apt">Apartment/unit number:</label>
   <input type="text" id="sec-ph-apt" name="sec-ph-apt"><br>
   <label for="sec-ph-city">City:</label>
   <input type="text" id="sec-ph-city" name="sec-ph-city"><br>
