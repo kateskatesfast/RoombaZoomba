@@ -7,29 +7,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-   <h1>Patient Registration Form</h1>
-  <h2>University of Minnesota Dental Clinics</h2>
+   <h1>Patient Registration Form
+    <br>University of Minnesota Dental Clinics</h1>
+      
   <div class="container">
 <form action="/submit-form" method="post">
     <fieldset>
       <legend>Patient Information</legend>
       <p id="personal-info-desc" style="font-style: normal; color: #003366;">
-      Please fill out your personal details below. All fields marked with * are required.
+      Please fill out your personal details below.
     </p>
-      <label for="first-name">First name:<span class="mandatory">*</span></label>
+      <label for="first-name" aria-required="true">First name:</label>
       <input type="text" id="first-name" name="first-name" aria-required="true" autocomplete="given-name"><br>
       
       <label for="middle-name">Middle name:</label>
       <input type="text" id="middle-name" name="middle-name" autocomplete="middle-name"><br>
       
-      <label for="last-name">Last name:<span class="mandatory">*</span></label>
+      <label for="last-name">Last name:</label>
       <input type="text" id="last-name" name="last-name" aria-required="true"><br>
 
-      <label>Sex:<span class="mandatory">*</span></label>
-      <input type="radio" id="female" name="sex" value="F">
-      <label for="female">Female</label>
+      <label>Legal Sex:*</label><br>
+      <input type="radio" id="sex" name="sex" value="F">
+      <label for="female">Female</label><br>
       <input type="radio" id="male" name="sex" value="M">
-      <label for="male">Male</label>
+      <label for="male">Male</label><br>
       <input type="radio" id="transgender" name="sex" value="T">
       <label for="transgender">Transgender</label><br>
 
@@ -40,18 +41,18 @@
       <input type="text" id="ssn" name="ssn" placeholder="xxx-xx-xxxx"><br>
 
       <label>Marital Status:<span class="mandatory">*</span></label>
-      <input type="checkbox" id="single" name="marital-status" value="Single">
-      <label for="single">Single</label>
-      <input type="checkbox" id="married" name="marital-status" value="Married">
-      <label for="married">Married</label>
-      <input type="checkbox" id="divorced" name="marital-status" value="Divorced">
-      <label for="divorced">Divorced</label>
-      <input type="checkbox" id="separated" name="marital-status" value="Separated">
-      <label for="separated">Separated</label>
-      <input type="checkbox" id="widowed" name="marital-status" value="Widowed">
-      <label for="widowed">Widowed</label><br>
-   
-      <label for="street-address">Street address:<span class="mandatory">*</span></label>
+      <input type="checkbox" id="marital-status-single" name="marital-status1" value="Single">
+      <label for="marital-status-single">Single</label>
+      <input type="checkbox" id="marital-status-married" name="marital-status2" value="Married">
+      <label for="marital-status-married">Married</label>
+      <input type="checkbox" id="marital-status-divorced" name="marital-status3" value="Divorced">
+      <label for="marital-status-divorced">Divorced</label>
+      <input type="checkbox" id="marital-status-separated" name="marital-status" value="Separated">
+      <label for="marital-status-separated">Separated</label>
+      <input type="checkbox" id="marital-status-widowed" name="marital-status5" value="Widowed">
+      <label for="marital-status-widowed">Widowed</label><br>
+
+      <label for="street-address">Street address:</label>
       <input type="text" id="street-address" name="street-address" aria-required="true" autocomplete="address-line1"><br>
 
       <label for="apt-unit">Apt/Unit:</label>
