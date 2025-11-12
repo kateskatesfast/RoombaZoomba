@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="PRF.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+<main>
 <body>
    <h1>Patient Registration Form
     <br>University of Minnesota Dental Clinics</h1>
@@ -17,86 +18,98 @@
       <p id="personal-info-desc" style="font-style: normal; color: #003366;">
       Please fill out your personal details below. Fields marked with an asterisk (*) are mandatory.
     </p>
+    <div role="group" class="patient-legal-name-container">
       <label for="patient-first-name" aria-required="true">First name:*</label>
       <input type="text" id="patient-first-name" name="first-name" aria-required="true" autocomplete="given-name"><br>
 
       <label for="patient-middle-name">Middle name:</label>
-      <input type="text" id="patient-middle-name" name="middle-name" qautocomplete="middle-name"><br>
+      <input type="text" id="patient-middle-name" name="middle-name" autocomplete="middle-name"><br>
 
       <label for="patient-last-name">Last name:*</label>
-      <input type="text" id="patient-last-name" name="last-name" aria-required="true"><br>
+      <input type="text" id="patient-last-name" name="last-name" aria-required="true" autocomplete="last-name"><br></div>
 
-      <div class="tooltip-container">
-      <label for="legal-sex" aria-describedby="legal-sex-tooltip">Legal Sex:*</label>
+      <div role="group" class="patient-legalSex-container">
+      <div role="group" aria-labelledby="legal-sex" class="tooltip-container">
+      <span id="legal-sex" aria-describedby="legal-sex-tooltip" aria-label="Select your legal sex">Legal Sex:*</span>
       <span id="legal-sex-tooltip" role="tooltip" class="tooltip-text">
         Please select the legal sex insurance has on file for you.
       </span>
       </div><br>
-      <input type="radio" id="legal-sex-female" name="legal-sex" value="F">
+      <input type="radio" id="legal-sex-female" name="legal-sex" value="Female">
       <label for="legal-sex-female">Female</label><br>
-      <input type="radio" id="legal-sex-male" name="legal-sex-male" value="M">
+      <input type="radio" id="legal-sex-male" name="legal-sex" value="M">
       <label for="legal-sex-male">Male</label><br>
-      <input type="radio" id="legal-sex-transgender" name="legal-sex-transgender" value="T">
-      <label for="legal-sex-transgender">Transgender</label><br>
+      <input type="radio" id="legal-sex-transgender" name="legal-sex" value="Transgender">
+      <label for="legal-sex-transgender">Transgender</label><br></div>
 
-      <label for="birth-date">Birth date:<span class="mandatory">*</span></label>
-      <input type="date" id="birth-date" name="birth-date" aria-required="true" autocomplete="bday"><br>
+      <div role="group" class="patient-birthdate-container">
+      <label for="patient-birth-date">Birth date:<span class="mandatory">*</span></label>
+      <input type="date" id="patient-birth-date" name="patient-birth-date" aria-required="true" autocomplete="bday"><br></div>
 
-      <label for="ssn">Social Security Number:</label>
-      <input type="text" id="ssn" name="ssn" placeholder="xxx-xx-xxxx"><br>
+      <div role="group" class="patient-ssn-container">
+      <div role="group" aria-labelledby="patient-ssn" class="patient-ssn-container">
+  <span id="patient-ssn">Social Security Number:</span> 
+  <input id="ssn-first-three" size="3" type="text" title="First 3 digits" aria-label="Enter the first 3 digits"> -
+  <input id="ssn-next-two" size="2" type="text" title="Next 2 digits" aria-label="Enter the next 2 digits"> -
+  <input id="ssn-last-four" size="4" type="text" title="Last 4 digits" aria-label="Enter the last 4 digits"></div>
+</div>
 
-      <div class="tooltip-container">
-      <label for="marital-status" aria-describedby="marital-tooltip">Marital Status:</label>
-      <span id="marital-tooltip" role="tooltip" class="tooltip-text">
+<div role="group" class="patient-marital-status">
+      <div role="group" class="tooltip-container" aria-labelledby="patient-marital-status">
+      <span id="patient-marital-status" aria-describedby="patient-marital-status-tooltip" aria-label="Select your marital status">Marital Status:*</span>
+      <span id="patient-marital-status-tooltip" role="tooltip" class="tooltip-text">
         Please select the marital status that your insurance has on file for you.
       </span>
       </div>
-      <input type="radio" id="marital-status-single" name="marital-status" value="Single">
-      <label for="marital-status-single">Single</label>
-      <input type="radio" id="marital-status-married" name="marital-status" value="Married">
-      <label for="marital-status-married">Married</label>
-      <input type="radio" id="marital-status-divorced" name="marital-status" value="Divorced">
-      <label for="marital-status-divorced">Divorced</label>
-      <input type="radio" id="marital-status-separated" name="marital-status" value="Separated">
-      <label for="marital-status-separated">Separated</label>
-      <input type="radio" id="marital-status-widowed" name="marital-status-widowed" value="Widowed">
-      <label for="marital-status-widowed">Widowed</label><br>
+      <input type="radio" id="patient-marital-status-single" name="patient-marital-status" value="Single">
+      <label for="patient-marital-status-single">Single</label>
+      <input type="radio" id="patient-marital-status-married" name="patient-marital-status" value="Married">
+      <label for="patient-marital-status-married">Married</label>
+      <input type="radio" id="patient-marital-status-divorced" name="patient-marital-status" value="Divorced">
+      <label for="patient-marital-status-divorced">Divorced</label>
+      <input type="radio" id="patient-marital-status-separated" name="patient-marital-status" value="Separated">
+      <label for="patient-marital-status-separated">Separated</label>
+      <input type="radio" id="patient-marital-status-widowed" name="patient-marital-status" value="Widowed">
+      <label for="patient-marital-status-widowed">Widowed</label><br></div>
+
 <!-- Patient Contact Information Section -->
-      <label for="street-address">Street address:</label>
-      <input type="text" id="street-address" name="street-address" aria-required="true" autocomplete="address-line1"><br>
+ <div role="group" class="patient-address-container">
+      <label for="patient-street-address">Street address:</label>
+      <input type="text" id="patient-street-address" name="patient-street-address" aria-required="true" autocomplete="address-line1"><br>
 
-      <label for="apt-unit">Apartment/Unit number:</label>
-      <input type="text" id="apt-unit" name="apt-unit" autocomplete="address-line2"><br>
+      <label for="patient-apartment-unit">Apartment/Unit number:</label>
+      <input type="text" id="patient-apartment-unit" name="patient-apartment-unit" autocomplete="address-line2"><br>
 
-      <label for="city">City:<span class="mandatory">*</span></label>
-      <input type="text" id="city" name="city" aria-required="true" autocomplete="address-level2"><br>
+      <label for="patient-city">City:<span class="mandatory">*</span></label>
+      <input type="text" id="patient-city" name="patient-city" aria-required="true" autocomplete="address-level2"><br>
 
-      <label for="state">State:<span class="mandatory">*</span></label>
-      <input type="text" id="state" name="state" aria-required="true" autocomplete="address-level3"><br>
+      <label for="patient-state">State:<span class="mandatory">*</span></label>
+      <input type="text" id="patient-state" name="patient-state" aria-required="true" autocomplete="address-level3"><br>
 
-      <label for="zipcode">ZIP Code:<span class="mandatory">*</span></label>
-      <input type="text" id="zipcode" name="zipcode" aria-required="true" autocomplete="postal-code"><br>
-    
-       <label for="home-phone">Home phone:<span class="mandatory">*</span></label>
-      <input type="tel" id="home-phone" name="home-phone" aria-required="true" autocomplete="tel">
+      <label for="patient-zipcode">ZIP Code:<span class="mandatory">*</span></label>
+      <input type="text" id="patient-zipcode" name="patient-zipcode" aria-required="true" autocomplete="postal-code"><br></div>
+
+      <div role="group" class="patient-contact-info-container">
+       <label for="patient-home-phone">Home phone:<span class="mandatory">*</span></label>
+      <input type="tel" id="patient-home-phone" name="patient-home-phone" aria-required="true" autocomplete="tel">
       <input type="checkbox" id="primary-home" name="primary-phone" value="Home" aria-required="true">
       <label for="primary-home">Primary</label><br>
-      
-           <label for="mobile-phone">Mobile phone:</label>
-      <input type="tel" id="mobile-phone" name="mobile-phone" autocomplete="mobile">
+
+      <label for="patient-mobile-phone">Mobile phone:</label>
+      <input type="tel" id="patient-mobile-phone" name="patient-mobile-phone" autocomplete="mobile">
       <input type="checkbox" id="primary-mobile" name="primary-phone" value="Mobile">
       <label for="primary-mobile">Primary</label><br>
 
-      <label for="work-phone">Work phone:</label>
-      <input type="tel" id="work-phone" name="work-phone" autocomplete="">
+      <label for="patient-work-phone">Work phone:</label>
+      <input type="tel" id="patient-work-phone" name="patient-work-phone" autocomplete="work">
       <input type="checkbox" id="primary-work" name="primary-phone" value="Work">
       <label for="primary-work">Primary</label><br>
 
-          <label for="email">E-Mail:</label>
-      <input type="email" id="email" name="email" autocomplete="email"><br>
-      <p class="hint hidden" id="emailHint">Please enter a valid email address.</p><br>
+          <label for="patient-email">E-Mail:</label>
+      <input type="email" id="patient-email" name="patient-email" autocomplete="email"><br>
+      <p class="hint hidden" id="emailHint">Please enter a valid email address.</p><br></div>
 <!-- Appointment reminder section -->
-      <label>Appointment reminder preference:</label><br>
+      <span id="appointmentReminder-preference">Appointment reminder preference:</span><br>
       <p class="reminder-desc" id="reminderHint">You may select multiple options.</p>
       <input type="checkbox" id="comm-prefs-phone" name="comm-prefs" value="Phone">
       <label for="comm-prefs-phone">Phone Call</label>
@@ -108,15 +121,17 @@
 
 <fieldset> <!-- Additional Patient Information Section -->
       <legend>Additional Patient Information</legend>
-      <label>Ethnicity:</label>
-      <input type="checkbox" name="ethnicity" value="Hispanic or Latino">
+      <div role="group" class="patient-ethnicity-container">
+      <span id="ethnicity-label" aria-label="Patient ethnicity">Ethnicity:</span>
+      <input type="checkbox" id="ethnicity-hispanic" name="ethnicity" value="Hispanic or Latino">
       <label for="ethnicity-hispanic">Hispanic or Latino</label>
-      <input type="checkbox" name="ethnicity" value="Not Hispanic or Latino">
+      <input id="ethnicity-not-hispanic" type="checkbox" name="ethnicity" value="Not Hispanic or Latino">
       <label for="ethnicity-not-hispanic">Not Hispanic or Latino</label>
-      <input type="checkbox" name="ethnicity" value="Decline">
-      <label for="ethnicity-decline">Decline to answer</label><br>
+      <input id="ethnicity-decline" type="checkbox" name="ethnicity" value="Decline">
+      <label for="ethnicity-decline">Decline to answer</label><br>></div>
 
-      <label>Race:</label>
+      <div role="group" class="patient-race-container">
+      <span>Race:</span>
       <input type="checkbox" id="race-asian" name="race-asian" value="Asian">
       <label for="race-asian">Asian</label>
       <input type="checkbox" id="race-american-indian" name="race-american-indian" value="American Indian or Alaska Native">
@@ -130,17 +145,20 @@
       <input type="checkbox" id="race-mixed"  name="race-mixed" value="Mixed Race">
       <label for="race-mixed">Mixed Race</label>
       <input type="checkbox" id="race-decline" name="race-decline" value="Decline">
-      <label for="race-decline">Decline to answer</label><br>
+      <label for="race-decline">Decline to answer</label><br></div>
+
 <!-- Language and Employer Information Section -->
-      <label>Interpreter Needed?</label>
-      <input type="radio" name="interpreter-needed" value="Yes">
+<div role="group" class="patient-language-interpreter-container">
+      <span id="interpreter-question">Interpreter Needed?</span>
+      <input id="interpreter-needed-yes" type="radio" name="interpreter-needed" value="Yes">
       <label for="interpreter-needed-yes">Yes</label>
-      <input type="radio" name="interpreter-needed" value="No">
+      <input id="interpreter-needed-no" type="radio" name="interpreter-needed" value="No">
       <label for="interpreter-needed-no">No</label><br>
 
       <label for="language-needed">If "Yes," language needed:</label>
-      <input type="text" id="language-needed" name="language-needed"><br>
+      <input type="text" id="language-needed" name="language-needed"><br></div>
   
+      <div role="group" class="patient-employer-info-container">
       <legend>Employer Information</legend>
       <label for="employer">Employer name:</label>
       <input type="text" id="employer" name="employer"><br>
@@ -149,35 +167,38 @@
       <input type="text" id="employer-city" name="employer-city"><br>
       
       <label for="employer-state">Employer state:</label>
-      <input type="text" id="employer-state" name="employer-state"><br>
+      <input type="text" id="employer-state" name="employer-state"><br></div>
     </fieldset>
 
     <fieldset>
       <!-- Emergency Contact Information Section -->
       <legend>Emergency Contact Information</legend>
+      <div role="group" class="emergency-contact-name-container">
        <label for="ec-first-name">First Name:</label>
       <input type="text" id="ec-first-name" name="ec-first-name" aria-required="true"><br>
       <label for="ec-last-name">Last Name:</label>
-      <input type="text" id="ec-last-name" name="ec-last-name" aria-required="true"><br>
+      <input type="text" id="ec-last-name" name="ec-last-name" aria-required="true"><br></div>
     
+      <div role="group" class="emergency-contact-phone-container">
       <label for="ec-phone">Phone:</label>
-      <input type="tel" id="ec-phone" name="ec-phone" aria-required="true"><br>
+      <input type="tel" id="ec-phone" name="ec-phone" aria-required="true"><br></div>
 
-      <label>Relation to Patient:</label>
-      <input type="checkbox" id="relation-spouse" name="relation" value="Spouse/Partner">
-      <label for="relation-spouse">Spouse/Partner</label>
-      <input type="checkbox" id="relation-child" name="relation" value="Child">
-      <label for="relation-child">Child</label>
-      <input type="checkbox" id="relation-parent" name="relation" value="Parent">
-      <label for="relation-parent">Parent</label>
-      <input type="checkbox" id="relation-sibling" name="relation" value="Sibling">
-      <label for="relation-sibling">Sibling</label>
-      <input type="checkbox" id="relation-grandparent" name="relation" value="Grandparent">
-      <label for="relation-grandparent">Grandparent</label>
-      <input type="checkbox" id="relation-guardian" name="relation" value="Legal Guardian">
-      <label for="relation-guardian">Legal Guardian</label>
-      <input type="checkbox" id="relation-other" name="relation" value="Other">
-      <label for="relation-other">Other</label>
+      <div role="group" class="emergency-contact-relation-container">
+      <span>Relation to Patient:</span><br>
+      <input id="patient-relation-spouse" type="checkbox" name="patient-relation-spouse" value="Spouse/Partner">
+      <label for="patient-relation-spouse">Spouse/Partner</label>
+      <input id="patient-relation-child" type="checkbox" name="patient-relation-child" value="Child">
+      <label for="patient-relation-child">Child</label>
+      <input id="patient-relation-parent" type="checkbox" name="patient-relation-parent" value="Parent">
+      <label for="patient-relation-parent">Parent</label>
+      <input id="patient-relation-sibling" type="checkbox" name="patient-relation-sibling" value="Sibling">
+      <label for="patient-relation-sibling">Sibling</label>
+      <input type="checkbox" id="patient-relation-grandparent" name="patient-relation-grandparent" value="Grandparent">
+      <label for="patient-relation-grandparent">Grandparent</label>
+      <input type="checkbox" id="patient-relation-guardian" name="patient-relation-guardian" value="Legal Guardian">
+      <label for="patient-relation-guardian">Legal Guardian</label>
+      <input type="checkbox" id="patient-relation-other" name="patient-relation-other" value="Other">
+      <label for="patient-relation-other">Other</label><br></div>
     </fieldset>
 
         <fieldset>
@@ -186,67 +207,83 @@
                 <p id="responsible-info-desc" style="font-style: normal; color: #003366;">
     Fill out this section <em>only</em> if the person responsible for the bill is different from the patient. If the patient is a minor (under 18 years old), the parent or legal guardian must be responsible for the bill.
     </p>
-               <label>Is this person a patient here?</label>
-          <input type="radio" id="is_patient_yes" name="is_patient" value="yes"> 
-          <label for="is_patient_yes"> Yes</label> 
-          <input type="radio" id="is_patient_no" name="is_patient" value="no"> 
-          <label for="is_patient_no">No</label><br>
-            <label for="prb-first-name">First name:</label>
-            <input type="text" id="prb-first-name" name="prb-first-name" aria-required="true"><br>
-            <label for="prb-middle-name">Middle name:</label>
-            <input type="text" id="prb-middle-name" name="prb-middle-name"><br>
-            <label for="prb-last-name">Last name:</label>
-          <input type="text" id="prb-last-name" name="prb-last-name" aria-required="true"><br>
-          <label>Birth Date: <input type="date" name="responsible_birthdate"></label><br>
-          <label for="prb-sex">Legal sex:</label>
-          <input type="radio" id="prb-f" name="prb-sex" value="F">
-          <label for="prb-f">Female</label>
-          <input type="radio" id="prb-m" name="prb-sex" value="M">
-          <label for="prb-m">Male</label>
-          <input type="radio" id="prb-t" name="prb-sex" value="T">
-          <label for="prb-t">Transgender</label><br>
+    <div role="group" class="guarantor-patient-question-container">
+               <span id="guarantor-patient-question">Is this person a patient here?</span>
+          <input type="radio" id="guarantor-patient-yes" name="guarantor-patient" value="yes"> 
+          <label for="guarantor-patient-yes"> Yes</label> 
+          <input type="radio" id="guarantor-patient-no" name="guarantor-patient" value="no"> 
+          <label for="guarantor-patient-no">No</label><br></div>
 
-          <label>Social Security number:</label>
-          <input type="text" name="responsible_ssn" placeholder="xxx-xx-xxxx"><br>
+          <div role="group" class="guarantor-legal-name-container">
+            <label for="guarantor-first-name">First name:</label>
+            <input type="text" id="guarantor-first-name" name="guarantor-first-name" aria-required="true"><br>
+            <label for="guarantor-middle-name">Middle name:</label>
+            <input type="text" id="guarantor-middle-name" name="guarantor-middle-name"><br>
+            <label for="guarantor-last-name">Last name:</label>
+          <input type="text" id="guarantor-last-name" name="guarantor-last-name" aria-required="true"><br></div>
 
-    <label>Street address: </label>
-    <input type="text" name="responsible_address"><br>
-    <label>Apartment/Unit number: </label>
-    <input type="text" name="responsible_apt"><br>
-    <label>City: </label> 
-    <input type="text" name="responsible_city"><br>
-    <label>State: </label>
-    <input type="text" name="responsible_state"><br>
-    <label>ZIP code: </label>
-    <input type="text" name="responsible_zip"><br>
+          <div role="group" class="guarantor-birthDate-container">
+          <label id="guarantor-birthDate">Birth Date:<input type="date" name="guarantor-birthDate"></label><br></div>
 
-    <label>Home phone: </label>
-    <input type="tel" name="responsible_home_phone" aria-required="true"><br>
-    <label>Alternate phone: </label>
-    <input type="tel" name="responsible_alt_phone"><br>
+<div role="group" aria-labelledby="guarantor-legal-sex" class="guarantor-legal-sex-container">
+          <span id="guarantor-legal-sex">Legal sex:</span>
+          <input type="radio" id="guarantor-legal-sex-female" name="guarantor-legal-sex" value="Female">
+          <label for="guarantor-legal-sex-female">Female</label>
+          <input type="radio" id="guarantor-legal-sex-male" name="guarantor-legal-sex" value="Male">
+          <label for="guarantor-legal-sex-male">Male</label>
+          <input type="radio" id="guarantor-legal-sex-transgender" name="guarantor-legal-sex" value="Transgender">
+          <label for="guarantor-legal-sex-transgender">Transgender</label><br></div>
 
-          <label>Relationship to the patient:</label>
-          <input type="checkbox" name="relation" value="Spouse/Partner">
-          <label for="relation-spouse">Spouse/Partner</label>
-          <input type="checkbox" name="relation" value="Child">
-          <label for="relation-child">Child</label>
-          <input type="checkbox" name="relation" value="Parent">
-          <label for="relation-parent">Parent</label>
-          <input type="checkbox" name="relation" value="Sibling">
-          <label for="relation-sibling">Sibling</label>
-          <input type="checkbox" name="relation" value="Grandparent">
-          <label for="relation-grandparent">Grandparent</label>
-          <input type="checkbox" name="relation" value="Legal Guardian">
-          <label for="relation-guardian">Legal Guardian</label>
-          <input type="checkbox" name="relation" value="Other">
-          <label for="relation-other">Other</label><br>
+       <div role="group" aria-labelledby="guarantor-ssn" class="guarantor-ssn-container">
+  <span id="guarantor-ssn">Social Security Number:</span> 
+  <input id="ssn-first-three" size="3" type="text" title="First 3 digits" aria-label="Enter the first 3 digits"> -
+  <input id="ssn-next-two" size="2" type="text" title="Next 2 digits" aria-label="Enter the next 2 digits"> -
+  <input id="ssn-last-four" size="4" type="text" title="Last 4 digits" aria-label="Enter the last 4 digits">
+</div>
 
-    <label for="responsible_employer">Employer Name:</label>
-    <input type="text" id="responsible_employer" name="responsible_employer"><br>
-    <label for="responsible_employer_city">Employer City:</label>
-    <input type="text" id="responsible_employer_city" name="responsible_employer_city"><br>
-    <label for="responsible_employer_state">Employer State:</label>
-    <input type="text" id="responsible_employer_state" name="responsible_employer_state"><br>
+<div role="group" class="guarantor-address-container">
+    <label for="guarantor-street">Street address:</label>
+    <input id="guarantor-street" type="text" name="guarantor-street" aria-label="Enter street address"><br>
+    <label for="guarantor-apt">Apartment/Unit number:</label>
+    <input id="guarantor-apt" type="text" name="guarantor-apt" aria-label="Enter apartment or unit number"><br>
+    <label for="guarantor-city">City:</label> 
+    <input id="guarantor-city" type="text" name="guarantor-city" aria-label="Enter city"><br>
+    <label for="guarantor-state">State:</label>
+    <input id="guarantor-state" type="text" name="guarantor-state" aria-label="Enter state"><br>
+    <label for="guarantor-zip">ZIP code:</label>
+    <input id="guarantor-zip" type="text" name="guarantor-zip" aria-label="Enter ZIP code"><br>
+</div>
+
+<div role="group" class="guarantor-contact-info-container">
+    <label for="guarantor-home-phone">Home phone:</label>
+    <input id="guarantor-home-phone" type="tel" name="guarantor-home-phone" aria-required="true" aria-label="Enter home phone number"><br>
+    <label for="guarantor-alt-phone">Alternate phone:</label>
+    <input id="guarantor-alt-phone" type="tel" name="guarantor-alt-phone"><br></div>
+
+    <div role="group" class="guarantor-relation-to-patient-container">
+          <span>Relationship to the patient:</span>
+          <input id="guarantor-relation-spouse" type="checkbox" name="relation" value="Spouse/Partner">
+          <label for="guarantor-relation-spouse">Spouse/Partner</label>
+          <input id="guarantor-relation-child" type="checkbox" name="relation" value="Child">
+          <label for="guarantor-relation-child">Child</label>
+          <input id="guarantor-relation-parent" type="checkbox" name="relation" value="Parent">
+          <label for="guarantor-relation-parent">Parent</label>
+          <input id="guarantor-relation-sibling" type="checkbox" name="relation" value="Sibling">
+          <label for="guarantor-relation-sibling">Sibling</label>
+          <input id="guarantor-relation-grandparent" type="checkbox" name="relation" value="Grandparent">
+          <label for="guarantor-relation-grandparent">Grandparent</label>
+          <input id="guarantor-relation-legal-guardian" type="checkbox" name="relation" value="Legal Guardian">
+          <label for="guarantor-relation-legal-guardian">Legal Guardian</label>
+          <input id="guarantor-relation-other" type="checkbox" name="relation" value="Other">
+          <label for="guarantor-relation-other">Other</label><br></div>
+
+          <div role="group" class="responsible-employer-info-container">
+    <label for="guarantor-employer-name">Employer Name:</label>
+    <input type="text" id="guarantor-employer-name" name="guarantor-employer-name"><br>
+    <label for="guarantor-employer-city">Employer City:</label>
+    <input type="text" id="guarantor-employer-city" name="guarantor-employer-city"><br>
+    <label for="guarantor-employer-state">Employer State:</label>
+    <input type="text" id="guarantor-employer-state" name="guarantor-employer-state"><br></div>
         </fieldset>
 
 <fieldset>
@@ -258,20 +295,21 @@
     <fieldset>
       <!-- MHCP Insurance Info -->
       <legend>Minnesota Health Care Programs (MHCP) Insurance</legend>
-  <label>Is the patient covered by a Minnesota Health Care Program (MHCP)?</label>
+      <div role="group" class="mhcp-insurance-container">
+  <span id="mhcp-insurance">Is the patient covered by a Minnesota Health Care Program (MHCP)?</span>
   <input type="radio" id="mhcp-yes" name="mhcp" value="Yes">
   <label for="mhcp-yes">Yes</label>
   <input type="radio" id="mhcp-no" name="mhcp" value="No">
   <label for="mhcp-no">No</label><br>
 
   <label for="mhcp-PMI">Medicaid or PMI number:</label>
-  <input type="text" id="mhcp-PMI" name="mhcp-PMI"><br>
+  <input type="text" id="mhcp-PMI" name="mhcp-PMI" aria-label="Enter the PMI number"><br>
 
   <label for="mhcp-id">ID number:</label>
-  <input type="text" id="mhcp-id" name="mhcp-id"><br>
-  
+  <input type="text" id="mhcp-id" name="mhcp-id" aria-label="Enter the ID number"><br>
+
   <label for="mhcp-group">Group number:</label>
-  <input type="text" id="mhcp-group" name="mhcp-group"><br>
+  <input type="text" id="mhcp-group" name="mhcp-group" aria-label="Enter the group number"><br></div>
 </fieldset>
 
 <fieldset>
@@ -281,122 +319,147 @@
       Commercial insurance is any insurance provided by an employer or purchased individually.
     </p>
   <div class="tooltip-container">
-  <label for="patient-policyholder" aria-describedby="tooltip-content">
+  <span for="patient-policyholder" aria-describedby="tooltip-content">
     Is the patient the policyholder?
-  </label>
+  </span>
   <span id="tooltip-content" role="tooltip" class="tooltip-text">
     The policyholder is the person who holds the insurance policy, which may be the patient or another individual.
   </span>
   </div>
-  <input type="radio" id="patient-policyholder" name="patient-policyholder" value="Yes">
-  <label for="patient-policyholder">Yes</label>
+  <input type="radio" id="patient-policyholder-yes" name="patient-policyholder" value="Yes">
+  <label for="patient-policyholder-yes">Yes</label>
   <input type="radio" id="patient-policyholder-no" name="patient-policyholder" value="No">
   <label for="patient-policyholder-no">No</label><br>
 
-  <label for="policy-holder-first">Policyholder first name:</label>
-  <input type="text" id="policy-holder-first" name="policy-holder-first"><br>
-  <label for="policy-holder-middle">Policyholder middle name:</label>
-  <input type="text" id="policy-holder-middle" name="policy-holder-middle"><br>
-  <label for="policy-holder-last">Policyholder last name:</label>
-  <input type="text" id="policy-holder-last" name="policy-holder-last"><br>
+  <div role="group" class="primaryInsurance-policyholder-name-container">
+  <label for="primaryInsurance-policyholder-first-name">Policyholder first name:</label>
+  <input type="text" id="primaryInsurance-policyholder-first-name" name="policyholder-first-name"><br>
+  <label for="primaryInsurance-policyholder-middle-name">Policyholder middle name:</label>
+  <input type="text" id="primaryInsurance-policyholder-middle-name" name="policyholder-middle-name"><br>
+  <label for="primaryInsurance-policyholder-last-name">Policyholder last name:</label>
+  <input type="text" id="primaryInsurance-policyholder-last-name" name="policyholder-last-name"><br></div>
 
+  <div role="group" class="policyholder-legal-sex-container">
   <div class="tooltip-container">
-  <label for="primary-policyholder-sex" aria-describedby="prim-tooltip-section">Policyholder legal sex:</label>
+  <span for="primary-policyholder-sex" aria-describedby="prim-tooltip-section">Policyholder legal sex:</span>
   <span id="prim-tooltip-section" role="tooltip" class="tooltip-text">
     Please select the legal sex insurance has on file for the policyholder.
   </span>
   </div> 
-  <input type="radio" id="ph-f" name="policy-holder-sex-female" value="F">
-  <label for="ph-f">Female</label>
-  <input type="radio" id="ph-m" name="policy-holder-sex-male" value="M">
-  <label for="ph-m">Male</label>
-  <input type="radio" id="ph-t" name="policy-holder-sex-transgender" value="T">
-  <label for="ph-t">Transgender</label><br>
+  <input type="radio" id="policyholder-female" name="policy-holder-legalSex" value="F">
+  <label for="policyholder-female">Female</label>
+  <input type="radio" id="policyholder-male" name="policy-holder-legalSex" value="M">
+  <label for="policyholder-male">Male</label>
+  <input type="radio" id="policyholder-transgender" name="policy-holder-legalSex" value="T">
+  <label for="policyholder-transgender">Transgender</label><br></div>
 
-  <label for="ph-birth">Birth date:</label>
-  <input type="date" id="ph-birth" name="ph-birth"><br>
+  <div role="group" class="policyholder-birthdate-container">
+  <label for="policyholder-birthdate">Birth date:</label>
+  <input type="date" id="policyholder-birthdate" name="policyholder-birthdate"><br></div>
 
+  <div role="group" class="policyholder-marital-status-container">
   <div class="tooltip-container">
-  <label for="ph-maritalStatus" aria-describedby="marital-tooltip-section">Marital status:</label>
-  <span id="marital-tooltip-section" role="tooltip" class="tooltip-text">
+  <span for="policyholder-maritalStatus" aria-describedby="marital-status-tooltip-section">Marital status:</span>
+  <span id="marital-status-tooltip-section" role="tooltip" class="tooltip-text">
     Please select the marital status insurance has on file for the policyholder.
   </span>
   </div>
-  <input type="radio" id="ph-maritalStatus-single" name="ph-maritalStatus" value="Single">
-  <label for="ph-maritalStatus-single">Single</label>
-  <input type="radio" id="ph-maritalStatus-married" name="ph-maritalStatus" value="Married">
-  <label for="ph-maritalStatus-married">Married</label>
-  <input type="radio" id="ph-maritalStatus-divorced" name="ph-maritalStatus" value="Divorced">
-  <label for="ph-maritalStatus-divorced">Divorced</label>
-  <input type="radio" id="ph-maritalStatus-separated" name="ph-maritalStatus" value="Separated">
-  <Label for="marital-status-separated">Separated</Label>
-  <input type="radio" id="ph-maritalStatus-widowed" name="ph-maritalStatus" value="Widowed">
-  <label for="ph-maritalStatus-widowed">Widowed</label><br>
+  <input type="radio" id="policyholder-maritalStatus-single" name="policyholder-maritalStatus" value="Single">
+  <label for="policyholder-maritalStatus-single">Single</label>
+  <input type="radio" id="policyholder-maritalStatus-married" name="policyholder-maritalStatus" value="Married">
+  <label for="policyholder-maritalStatus-married">Married</label>
+  <input type="radio" id="policyholder-maritalStatus-divorced" name="policyholder-maritalStatus" value="Divorced">
+  <label for="policyholder-maritalStatus-divorced">Divorced</label>
+  <input type="radio" id="policyholder-maritalStatus-separated" name="policyholder-maritalStatus" value="Separated">
+  <Label for="policyholder-maritalStatus-separated">Separated</Label>
+  <input type="radio" id="policyholder-maritalStatus-widowed" name="policyholder-maritalStatus" value="Widowed">
+  <label for="policyholder-maritalStatus-widowed">Widowed</label><br></div>
 
-    <label for="ph-ssn">Social Security Number:</label>
-  <input type="text" id="ph-ssn" name="ph-ssn"><br>
+ <div role="group" aria-labelledby="primaryInsurance-policyholder-ssn" class="primaryInsurance-policyholder-ssn-container">
+  <span id="primaryInsurance-policyholder-ssn">Social Security Number:</span> 
+  <input id="ssn-first-three" size="3" type="text" title="First 3 digits" aria-label="Enter the first 3 digits"> -
+  <input id="ssn-next-two" size="2" type="text" title="Next 2 digits" aria-label="Enter the next 2 digits"> -
+  <input id="ssn-last-four" size="4" type="text" title="Last 4 digits" aria-label="Enter the last 4 digits">
+</div>
 
-    <label>Policyholder's relation to the patient:</label><br>
-  <input type="checkbox" name="ph-relation" value="Spouse/Partner">
-  <label for="ph-relation">Spouse/Partner</label>
-  <input type="checkbox" name="ph-relation" value="Parent">
-  <label for="ph-relation">Parent</label>
-  <input type="checkbox" name="ph-relation" value="Grandparent">
-  <label for="ph-relation">Grandparent</label>
-  <input type="checkbox" name="ph-relation" value="Child">
-  <label for="ph-relation">Child</label>
-  <input type="checkbox" name="ph-relation" value="Legal Guardian">
-  <label for="ph-relation">Legal Guardian</label>
-  <input type="checkbox" name="ph-relation" value="Sibling">
-  <label for="ph-relation">Sibling</label><br>
+  <div role="group" class="policyholder-relation-container">
+    <span>Policyholder's relation to the patient:</span><br>
+  <input id="policyholder-relation-spouse" type="checkbox" name="policyholder-relation-spouse" value="Spouse/Partner">
+  <label for="policyholder-relation-spouse">Spouse/Partner</label>
+  <input id="policyholder-relation-parent" type="checkbox" name="policyholder-relation-parent" value="Parent">
+  <label for="policyholder-relation-parent">Parent</label>
+  <input id="policyholder-relation-grandparent" type="checkbox" name="policyholder-relation-grandparent" value="Grandparent">
+  <label for="policyholder-relation-grandparent">Grandparent</label>
+  <input id="policyholder-relation-child" type="checkbox" name="policyholder-relation-child" value="Child">
+  <label for="policyholder-relation-child">Child</label>
+  <input id="policyholder-relation-legal-guardian" type="checkbox" name="policyholder-relation-legal-guardian" value="Legal Guardian">
+  <label for="policyholder-relation-legal-guardian">Legal Guardian</label>
+  <input id="policyholder-relation-sibling" type="checkbox" name="policyholder-relation-sibling" value="Sibling">
+  <label for="policyholder-relation-sibling">Sibling</label><br></div>
 
  <fieldset>
     <legend>Policyholder's Contact Information</legend>
-<input type="checkbox" id="ph-same-patient" name="ph-same-patient" value="Yes">
-<label for="ph-same-patient">Same as Patient</label><br>
-  <label for="ph-address">Street address:</label>
-  <input type="text" id="ph-address" name="ph-address"><br>
-  <label for="ph-apt">Apartment/unit number:</label>
-  <input type="text" id="ph-apt" name="ph-apt"><br>
-  <label for="ph-city">City:</label>
-  <input type="text" id="ph-city" name="ph-city"><br>
-  <label for="ph-state">State:</label>
-  <input type="text" id="ph-state" name="ph-state"><br>
-  <label for="ph-zip">ZIP code:</label>
-  <input type="text" id="ph-zip" name="ph-zip"><br>
+    <div role="group" class="policyholder-address-question-container">
+<input type="checkbox" id="policyholder-same-as-patient" name="policyholder-same-as-patient" value="Yes">
+<label for="policyholder-same-as-patient">Same as Patient</label><br></div> 
 
-   <label for="ph-home-phone">Home phone:</label>
-  <input type="tel" id="ph-home-phone" name="ph-home-phone"><br>
-  <label for="ph-alt-phone">Alternate phone:</label>
-  <input type="tel" id="ph-alt-phone" name="ph-alt-phone"><br>
+<div role="group" class="policyholder-address-container">
+  <label for="policyholder-address">Street address:</label>
+  <input type="text" id="policyholder-address" name="policyholder-address"><br>
+  <label for="policyholder-apt">Apartment/unit number:</label>
+  <input type="text" id="policyholder-apt" name="policyholder-apt"><br>
+  <label for="policyholder-city">City:</label>
+  <input type="text" id="policyholder-city" name="policyholder-city"><br>
+  <label for="policyholder-state">State:</label>
+  <input type="text" id="policyholder-state" name="policyholder-state"><br>
+  <label for="policyholder-zip">ZIP code:</label>
+  <input type="text" id="policyholder-zip" name="policyholder-zip"><br></div>
+
+  <div role="group" class="policyholder-contactInformation-container">
+   <label for="policyholder-home-phone">Home phone:</label>
+  <input type="tel" id="policyholder-home-phone" name="policyholder-home-phone"><br>
+  <label for="policyholder-alt-phone">Alternate phone:</label>
+  <input type="tel" id="policyholder-alt-phone" name="policyholder-alt-phone"><br></div>
   </fieldset>
 
   <fieldset>
     <legend>Primary Insurance Billing Information</legend>
-  <label for="insurance-name">Insurance Name:</label>
-  <input type="text" id="insurance-name" name="insurance-name"><br>
-  <label>Insurance Type:</label>
-  <input type="checkbox" name="insurance-type" value="Dental">Dental
-  <input type="checkbox" name="insurance-type" value="Medical">Medical<br>
+    <div role="group" class="primaryInsurance-name-container">
+  <label for="primaryInsurance-name">Insurance name:</label>
+  <input type="text" id="primaryInsurance-name" name="primaryInsurance-name" aria-label="Enter name of insurance company"><br>
+  </div>
 
-    <label for="subscriber-id">Policyholder Subscriber ID:</label>
+  <div role="group" class="primaryInsurance-type-container">
+  <span id="primaryInsurance-type">Insurance type:</span>
+  <input type="checkbox" id="primaryInsurance-type-dental" name="primaryInsurance-type" value="Dental">
+  <label for="primaryInsurance-type-dental">Dental</label>
+  <input type="checkbox" id="primaryInsurance-type-medical" name="primaryInsurance-type" value="Medical">
+  <label for="primaryInsurance-type-medical">Medical</label><br></div>
+
+    <label for="subscriber-id">Policyholder subscriber ID:</label>
   <input type="text" id="subscriber-id" name="subscriber-id"><br>
-  <label for="group-number">Group Number:</label>
+  <label for="group-number">Group number:</label>
   <input type="text" id="group-number" name="group-number"><br>
 
-  <label for="insurance-billing-address">Insurance Billing Address:</label>
-  <input type="text" id="insurance-billing-address" name="insurance-billing-address"><br>
-  <label for="insurance-city">City:</label>
-  <input type="text" id="insurance-city" name="insurance-city"><br>
-  <label for="insurance-state">State:</label>
-  <input type="text" id="insurance-state" name="insurance-state"><br>
-  <label for="insurance-start-date">Insurance Start Date:</label>
-  <input type="date" id="insurance-start-date" name="insurance-start-date"><br>
+  <div role="group" class="primaryInsurance-billing-address-container">
+  <label for="insurance-billing-streetAddress">Street address:</label>
+  <input type="text" id="insurance-billing-streetAddress" name="insurance-billing-streetAddress"><br>
+  <label for="insurance-billing-city">City:</label>
+  <input type="text" id="insurance-billing-city" name="insurance-billing-city"><br>
+  <label for="insurance-billing-state">State:</label>
+  <input type="text" id="insurance-billing-state" name="insurance-billing-state"><br>
+  <label for="insurance-billing-zipCode">ZIP Code:</label>
+  <input type="text" id="insurance-billing-zipCode" name="insurance-billing-zipCode"><br></div>
 
-   <label for="ph-employer">Employer name:</label>
-  <input type="text" id="ph-employer" name="ph-employer"><br>
-  <label for="ph-employer-city">Employer city and state:</label>
-  <input type="text" id="ph-employer-city" name="ph-employer-city"><br>
+  <div role="group" class="insurance-start-date-container">
+  <label for="insurance-start-date">Insurance start date:</label>
+  <input type="date" id="insurance-start-date" name="insurance-start-date"><br></div>
+
+  <div role="group" class="policyholder-employer-info-container">
+   <label for="policyholder-employer">Employer name:</label>
+  <input type="text" id="policyholder-employer" name="policyholder-employer"><br>
+  <label for="policyholder-employer-city">Employer city and state:</label>
+  <input type="text" id="policyholder-employer-city" name="policyholder-employer-city"><br></div>
   </fieldset>
 </fieldset>
 
@@ -405,126 +468,146 @@
    <p id="personal-info-desc-secondary" style="font-style: normal; color: #003366;">
       Please provide the following information as it appears on your insurance card. A copy of your insurance card is required.
     </p>
+    <div role="group" class="secondary-policyholder-question-container">
   <div class="tooltip-container">
-  <label for="sec-patient-policyholder" aria-describedby="sec-tooltip-content">Is the patient the policyholder?</label>
+  <span for="secondary-patient-policyholder-question" aria-describedby="sec-tooltip-content">Is the patient the policyholder?</span>
   <span id="sec-tooltip-content" role="tooltip" class="tooltip-text">
     The policyholder is the person who holds the insurance policy, which may be the patient or another individual.
   </span>
 </div>
-<input type="radio" id="sec-patient-policyholder" name="sec-patient-policyholder" value="Yes">
-    <label for="sec-patient-policyholder">Yes</label>
-    <input type="radio" id="sec-patient-policyholder-text" name="sec-patient-policyholder-text" value="No">
-    <label for="sec-patient-policyholder-text">No </label><br>
-    
-  <label for="sec-policy-holder-first">Policyholder first name:</label>
-  <input type="text" id="sec-policy-holder-first" name="sec-policy-holder-first"><br>
-  <label for="sec-policy-holder-middle">Policyholder middle name:</label>
-  <input type="text" id="sec-policy-holder-middle" name="sec-policy-holder-middle"><br>
-  <label for="sec-policy-holder-last">Policyholder last name:</label>
-  <input type="text" id="sec-policy-holder-last" name="sec-policy-holder-last"><br>
+<input type="radio" id="secondaryInsurance-policyholder-question-yes" name="secondaryInsurance-policyholder-question" value="Yes">
+    <label for="secondaryInsurance-policyholder-question-yes">Yes</label>
+    <input type="radio" id="secondaryInsurance-policyholder-question-no" name="secondaryInsurance-policyholder-question" value="No">
+    <label for="secondaryInsurance-policyholder-question-no">No </label><br></div>
 
+    <div role="group" class="secondary-policyholder-name-container">
+  <label for="secondaryInsurance-policy-holder-firstName">Policyholder first name:</label>
+  <input type="text" id="secondaryInsurance-policy-holder-firstName" name="secondaryInsurance-policy-holder-firstName"><br>
+  <label for="secondaryInsurance-policy-holder-middleName">Policyholder middle name:</label>
+  <input type="text" id="secondaryInsurance-policy-holder-middleName" name="secondaryInsurance-policy-holder-middleName"><br>
+  <label for="secondaryInsurance-policy-holder-lastName">Policyholder last name:</label>
+  <input type="text" id="secondaryInsurance-policy-holder-lastName" name="secondaryInsurance-policy-holder-lastName"><br></div>
+
+  <div role="group" class="secondaryInsurance-policyholder-legalSex-container">
   <div class="tooltip-container">
-    <label for="sec-policy-holder-sex" aria-describedby="sec-tooltip-section">Policyholder legal sex:</label>
-    <span id="sec-tooltip-section" role="tooltip" class="tooltip-text">
+    <span id="secondaryInsurance-policyholder-legalSex" aria-describedby="secondaryInsurance-tooltip-section">Policyholder legal sex:</span>
+    <span id="secondaryInsurance-tooltip-section" role="tooltip" class="tooltip-text">
       Please select the legal sex insurance has on file for the policyholder.
     </span>
   </div>
-  <input type="radio" id="sec-ph-f" name="sec-policy-holder-sex" value="F">
-  <label for="sec-ph-f">Female</label>
-  <input type="radio" id="sec-ph-m" name="sec-policy-holder-sex" value="M">
-  <label for="sec-ph-m">Male</label>
-  <input type="radio" id="sec-ph-t" name="sec-policy-holder-sex" value="T">
-  <label for="sec-ph-t">Transgender</label><br>
+  <input type="radio" id="secondaryInsurance-policyholder-legalSex-female" name="secondaryInsurance-policyholder-legalSex" value="Female">
+  <label for="secondaryInsurance-policyholder-legalSex-female">Female</label>
+  <input type="radio" id="secondaryInsurance-policyholder-legalSex-male" name="secondaryInsurance-policyholder-legalSex" value="Male">
+  <label for="secondaryInsurance-policyholder-legalSex-male">Male</label>
+  <input type="radio" id="secondaryInsurance-policyholder-legalSex-transgender" name="secondaryInsurance-policyholder-legalSex" value="Transgender">
+  <label for="secondaryInsurance-policyholder-legalSex-transgender">Transgender</label><br></div>
 
-    <label for="sec-ph-birth">Birth date:</label>
-  <input type="date" id="sec-ph-birth" name="sec-ph-birth"><br>
+  <div role="group" class="secondaryInsurance-policyholder-birthDate-container">
+    <label for="secondaryInsurance-policyholder-birthDate">Birth date:</label>
+  <input type="date" id="secondaryInsurance-policyholder-birthDate" name="secondaryInsurance-policyholder-birthDate"><br></div>
 
+  <div role="group" class="secondaryInsurance-policyholder-maritalStatus-container">
   <div class="tooltip-container">
-    <label for="sec-marital-status" aria-describedby="sec-tooltip-marital">Marital status:</label>
-    <span id="sec-tooltip-marital" role="tooltip" class="tooltip-text">
+    <span for="secondaryInsurance-policyholder-maritalStatus" aria-describedby="secondaryInsurance-tooltip-policyholder-maritalStatus">Marital status:</span>
+    <span id="secondaryInsurance-tooltip-policyholder-maritalStatus" role="tooltip" class="tooltip-text">
       Please select the marital status insurance has on file for the policyholder.
     </span>
   </div>
-  <input type="radio" id="sec-marital-status-single" name="sec-marital-status" value="Single">
-  <label for="sec-marital-status-single">Single</label>
-  <input type="radio" id="sec-marital-status-married" name="sec-marital-status" value="Married">
-  <label for="sec-marital-status-married">Married</label>
-  <input type="radio" id="sec-marital-status-divorced" name="sec-marital-status" value="Divorced">
-  <label for="sec-marital-status-divorced">Divorced</label>
-  <input type="radio" id="sec-marital-status-separated" name="sec-marital-status" value="Separated">
-  <label for="sec-marital-status-separated">Separated</label>
-  <input type="radio" id="sec-marital-status-widowed" name="sec-marital-status" value="Widowed">
-  <label for="sec-marital-status-widowed">Widowed</label><br>
+  <input type="radio" id="secondaryInsurance-policyholder-maritalStatus-single" name="secondaryInsurance-policyholder-maritalStatus" value="Single">
+  <label for="secondaryInsurance-policyholder-maritalStatus-single">Single</label>
+  <input type="radio" id="secondaryInsurance-policyholder-maritalStatus-married" name="secondaryInsurance-policyholder-maritalStatus" value="Married">
+  <label for="secondaryInsurance-policyholder-maritalStatus-married">Married</label>
+  <input type="radio" id="secondaryInsurance-policyholder-maritalStatus-divorced" name="secondaryInsurance-policyholder-maritalStatus" value="Divorced">
+  <label for="secondaryInsurance-policyholder-maritalStatus-divorced">Divorced</label>
+  <input type="radio" id="secondaryInsurance-policyholder-maritalStatus-separated" name="secondaryInsurance-policyholder-maritalStatus" value="Separated">
+  <label for="secondaryInsurance-policyholder-maritalStatus-separated">Separated</label>
+  <input type="radio" id="secondaryInsurance-policyholder-maritalStatus-widowed" name="secondaryInsurance-policyholder-maritalStatus" value="Widowed">
+  <label for="secondaryInsurance-policyholder-maritalStatus-widowed">Widowed</label><br></div>
 
-    <label for="sec-ph-ssn">Social Security number:</label>
-  <input type="text" id="sec-ph-ssn" name="sec-ph-ssn"><br>
+   <div role="group" aria-labelledby="secondaryInsurance-policyholder-ssn" class="secondaryInsurance-policyholder-ssn-container">
+  <span id="secondaryInsurance-policyholder-ssn">Social Security Number:</span> 
+  <input id="ssn-first-three" size="3" type="text" title="First 3 digits" aria-label="Enter the first 3 digits"> -
+  <input id="ssn-next-two" size="2" type="text" title="Next 2 digits" aria-label="Enter the next 2 digits"> -
+  <input id="ssn-last-four" size="4" type="text" title="Last 4 digits" aria-label="Enter the last 4 digits">
+</div>
 
-    <label>Policyholder's relation to the patient:</label><br>
-  <input type="checkbox" name="sec-ph-relation" value="Spouse/Partner">
-  <label for="sec-ph-relation-spouse">Spouse/Partner</label>
-  <input type="checkbox" name="sec-ph-relation" value="Parent">
-  <label for="sec-ph-relation-parent">Parent</label>
-  <input type="checkbox" name="sec-ph-relation" value="Grandparent">
-  <label for="sec-ph-relation-grandparent">Grandparent</label>
-  <input type="checkbox" name="sec-ph-relation" value="Child">
-  <label for="sec-ph-relation-child">Child</label>
-  <input type="checkbox" name="sec-ph-relation" value="Legal Guardian">
-  <label for="sec-ph-relation-legal-guardian">Legal Guardian</label>
-  <input type="checkbox" name="sec-ph-relation" value="Sibling">
-  <label for="sec-ph-relation-sibling">Sibling</label>
+  <div role="group" class="secondaryInsurance-policyholder-relation-container">
+    <span>Policyholder's relation to the patient:</span><br>
+  <input id="secondaryInsurance-policyholder-relation-spouse" type="checkbox" name="secondaryInsurance-policyholder-relation-spouse" value="Spouse/Partner">
+  <label for="secondaryInsurance-policyholder-relation-spouse">Spouse/Partner</label>
+  <input id="secondaryInsurance-policyholder-relation-parent" type="checkbox" name="secondaryInsurance-policyholder-relation-parent" value="Parent">
+  <label for="secondaryInsurance-policyholder-relation-parent">Parent</label>
+  <input id="secondaryInsurance-policyholder-relation-grandparent" type="checkbox" name="secondaryInsurance-policyholder-relation-grandparent" value="Grandparent">
+  <label for="secondaryInsurance-policyholder-relation-grandparent">Grandparent</label>
+  <input id="secondaryInsurance-policyholder-relation-child" type="checkbox" name="secondaryInsurance-policyholder-relation-child" value="Child">
+  <label for="secondaryInsurance-policyholder-relation-child">Child</label>
+  <input id="secondaryInsurance-policyholder-relation-legal-guardian" type="checkbox" name="secondaryInsurance-policyholder-relation-legal-guardian" value="Legal Guardian">
+  <label for="secondaryInsurance-policyholder-relation-legal-guardian">Legal Guardian</label>
+  <input id="secondaryInsurance-policyholder-relation-sibling" type="checkbox" name="secondaryInsurance-policyholder-relation-sibling" value="Sibling">
+  <label for="secondaryInsurance-policyholder-relation-sibling">Sibling</label><br></div>
   <p></p>
 
   <fieldset>
     <legend>Policyholder's Contact Information</legend>
-    <input type="checkbox" id="sec-ph-same-patient" name="sec-ph-same-patient" value="Yes">
-  <label for="sec-ph-same-patient">Same as Patient</label><br>
-  <label for="sec-ph-address">Street address:</label>
-  <input type="text" id="sec-ph-address" name="sec-ph-address"><br>
- 
-  <label for="sec-ph-apt">Apartment/unit number:</label>
-  <input type="text" id="sec-ph-apt" name="sec-ph-apt"><br>
-  <label for="sec-ph-city">City:</label>
-  <input type="text" id="sec-ph-city" name="sec-ph-city"><br>
-  <label for="sec-ph-state">State:</label>
-  <input type="text" id="sec-ph-state" name="sec-ph-state"><br>
-  <label for="sec-ph-zip">ZIP Code:</label>
-  <input type="text" id="sec-ph-zip" name="sec-ph-zip"><br>
+    <div role="group" class="secondaryInsurance-policyholder-address-question-container">
+    <input type="checkbox" id="secondaryInsurance-policyholder-same-as-patient" name="secondaryInsurance-policyholder-same-as-patient" value="Yes">
+  <label for="secondaryInsurance-policyholder-same-as-patient">Same as Patient</label><br></div>
 
-<label for="sec-ph-home-phone">Home phone:</label>
-  <input type="tel" id="sec-ph-home-phone" name="sec-ph-home-phone"><br>
-  <label for="sec-ph-alt-phone">Alternate phone:</label>
-  <input type="tel" id="sec-ph-alt-phone" name="sec-ph-alt-phone"><br>
+  <div role="group" class="secondaryInsurance-policyholder-address-container">
+  <label for="secondaryInsurance-policyholder-address">Street address:</label>
+  <input type="text" id="secondaryInsurance-policyholder-address" name="secondaryInsurance-policyholder-address"><br>
+  <label for="secondaryInsurance-policyholder-apt">Apartment/unit number:</label>
+  <input type="text" id="secondaryInsurance-policyholder-apt" name="secondaryInsurance-policyholder-apt"><br>
+  <label for="secondaryInsurance-policyholder-city">City:</label>
+  <input type="text" id="secondaryInsurance-policyholder-city" name="secondaryInsurance-policyholder-city"><br>
+  <label for="secondaryInsurance-policyholder-state">State:</label>
+  <input type="text" id="secondaryInsurance-policyholder-state" name="secondaryInsurance-policyholder-state"><br>
+  <label for="secondaryInsurance-policyholder-zip">ZIP Code:</label>
+  <input type="text" id="secondaryInsurance-policyholder-zip" name="secondaryInsurance-policyholder-zip"><br></div>
+
+  <div role="group" class="secondaryInsurance-policyholder-contactInformation-container">
+<label for="secondaryInsurance-policyholder-home-phone">Home phone:</label>
+  <input type="tel" id="secondaryInsurance-policyholder-home-phone" name="secondaryInsurance-policyholder-home-phone"><br>
+  <label for="secondaryInsurance-policyholder-alt-phone">Alternate phone:</label>
+  <input type="tel" id="secondaryInsurance-policyholder-alt-phone" name="secondaryInsurance-policyholder-alt-phone"><br></div>
 </fieldset>
 
 <fieldset>
   <legend>Secondary Insurance Billing Information</legend>
-  <label for="sec-insurance-name">Secondary Insurance Name:</label>
-  <input type="text" id="sec-insurance-name" name="sec-insurance-name"><br>
-  <label>Secondary Insurance Type:</label>
-  <input type="checkbox" name="sec-insurance-type" value="Dental">
-  <label for="sec-insurance-type-dental">Dental</label>
-  <input type="checkbox" name="sec-insurance-type" value="Medical">
-  <label for="sec-insurance-type-medical">Medical</label><br>
+  <div role="group" class="secondaryInsurance-name-container">
+  <label for="secondaryInsurance-name">Secondary Insurance Name:</label>
+  <input type="text" id="secondaryInsurance-name" name="secondaryInsurance-name" aria-label="Enter the name of the insurance company"><br></div>
 
-  <label for="sec-subscriber-id">Subscriber ID:</label>
-  <input type="text" id="sec-subscriber-id" name="sec-subscriber-id"><br>
+  <div role="group" class="secondaryInsurance-type-container">
+  <span id="secondaryInsurance-type-label">Secondary Insurance Type:</span>
+  <input type="checkbox" id="secondaryInsurance-type-dental" name="secondaryInsurance-type" value="Dental">
+  <label for="secondaryInsurance-type-dental">Dental</label>
+  <input type="checkbox" id="secondaryInsurance-type-medical" name="secondaryInsurance-type" value="Medical">
+  <label for="secondaryInsurance-type-medical">Medical</label><br></div>
 
-  <label for="sec-group-number">Group Number:</label>
-  <input type="text" id="sec-group-number" name="sec-group-number"><br>
+  <div role="group" class="secondaryInsurance-subscriberNumbers-container">
+  <label for="secondaryInsurance-subscriber-id">Subscriber ID:</label>
+  <input type="text" id="secondaryInsurance-subscriber-id" name="secondaryInsurance-subscriber-id"><br>
+  <label for="secondaryInsurance-group-number">Group Number:</label>
+  <input type="text" id="secondaryInsurance-group-number" name="secondaryInsurance-group-number"><br></div>
 
-  <label for="sec-insurance-billing-address">Insurance Billing Address:</label>
-  <input type="text" id="sec-insurance-billing-address" name="sec-insurance-billing-address"><br>
-  <label for="sec-insurance-city">City:</label>
-  <input type="text" id="sec-insurance-city" name="sec-insurance-city"><br>
-  <label for="sec-insurance-state">State:</label>
-  <input type="text" id="sec-insurance-state" name="sec-insurance-state"><br>
-  <label for="sec-insurance-start-date">Insurance Start Date:</label>
-  <input type="date" id="sec-insurance-start-date" name="sec-insurance-start-date"><br>
+  <div role="group" class="secondaryInsurance-billingAddress-container">
+  <label for="secondaryInsurance-billingAddress">Insurance Billing Address:</label>
+  <input type="text" id="secondaryInsurance-billingAddress" name="secondaryInsurance-billingAddress"><br>
+  <label for="secondaryInsurance-billingCity">City:</label>
+  <input type="text" id="secondaryInsurance-billingCity" name="secondaryInsurance-billingCity"><br>
+  <label for="secondaryInsurance-billingState">State:</label>
+  <input type="text" id="secondaryInsurance-billingState" name="secondaryInsurance-billingState"><br></div>
 
-   <label for="sec-ph-employer">Employer Name:</label>
-  <input type="text" id="sec-ph-employer" name="sec-ph-employer"><br>
-  <label for="sec-ph-employer-city">Employer City and State:</label>
-  <input type="text" id="sec-ph-employer-city" name="sec-ph-employer-city"><br>
+  <div role="group" class="secondaryInsurance-startDate-container">
+  <label for="secondaryInsurance-start-date">Insurance Start Date:</label>
+  <input type="date" id="secondaryInsurance-start-date" name="secondaryInsurance-start-date"><br></div>
+
+  <div role="group" class="secondaryInsurance-employer-info-container">
+   <label for="secondaryInsurance-employer">Employer Name:</label>
+  <input type="text" id="secondaryInsurance-employer" name="secondaryInsurance-employer"><br>
+  <label for="secondaryInsurance-employer-city">Employer City and State:</label>
+  <input type="text" id="secondaryInsurance-employer-city" name="secondaryInsurance-employer-city"><br></div>
 </fieldset>
 </fieldset>
  <div aria-live="assertive" id="message"></div><br>
@@ -534,4 +617,5 @@
   </form>
 </div>
 </body>
+</main>
 </html>

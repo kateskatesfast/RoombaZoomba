@@ -97,7 +97,17 @@ fieldset fieldset > legend {
       width: auto;
       font-weight: 600; 
       margin-bottom: 0.5rem;
-      color: #002244; /* Slightly darker blue for labels */
+      color: #003366; /* Slightly darker blue for labels */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+     }
+    span {
+      margin: 0 0 8px 0;
+        display: inline-block;
+      width: auto;
+      font-weight: 600; 
+      margin-bottom: 0.5rem;
+      color: #003366; /* Slightly darker blue for labels */
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
     }
@@ -109,7 +119,8 @@ fieldset fieldset > legend {
       border-radius: 5px;
       padding: 12px;
       margin-bottom: 12px;
-      width: 50%;
+      width: 12rem; 
+      min-width: 8rem;
       margin: 10 px 0;
       box-sizing: border-box;
     }
